@@ -42,5 +42,5 @@ jobs:
         with:
           context: ./${{ matrix.version }}
           push: true
-          tags: ${{ matrix.version }}
+          tags: ghcr.io/toozej/docker-goatcounter:${{ matrix.version }}
           labels: ${{ steps.meta.outputs.labels }}
