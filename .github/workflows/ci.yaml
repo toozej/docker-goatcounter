@@ -40,9 +40,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: ./${{ matrix.version }}/
+          context: ./${{ matrix.version }}
           push: true
-          tags: |
-            ${{ steps.meta.outputs.tags }}
-            ${{ matrix.version }}
+          tags: ${{ matrix.version }}
           labels: ${{ steps.meta.outputs.labels }}
