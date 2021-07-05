@@ -6,7 +6,7 @@ Unofficial Docker image for [goatcounter](https://github.com/zgoat/goatcounter) 
 
 ### GitHub Container Registry
 ```
-docker pull ghcr.io/toozej/docker-goatcounter:latest
+docker pull ghcr.io/toozej/docker-goatcounter:$VERSION
 ```
 
 ### Local Build
