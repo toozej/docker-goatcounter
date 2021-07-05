@@ -4,8 +4,14 @@ Unofficial Docker image for [goatcounter](https://github.com/zgoat/goatcounter) 
 
 ## How to use this image
 
+### GitHub Container Registry
 ```
-git clone https://github.com/HGZahn/docker-goatcounter.git
+docker pull ghcr.io/toozej/docker-goatcounter:latest
+```
+
+### Local Build
+```
+git clone https://github.com/toozej/docker-goatcounter.git
 cd docker-goatcounter/v2.0
 docker build -t goatcounter:2.0 .
 ```
