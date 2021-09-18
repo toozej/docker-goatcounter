@@ -1,4 +1,4 @@
-# baethon/goatcounter
+# toozej/docker-goatcounter
 
 Unofficial Docker image for [goatcounter](https://github.com/zgoat/goatcounter) - simple web statistics
 
