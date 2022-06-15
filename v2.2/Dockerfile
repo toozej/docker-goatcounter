@@ -13,7 +13,7 @@ FROM debian:bullseye-slim
 WORKDIR /goatcounter
 
 ENV GOATCOUNTER_LISTEN '0.0.0.0:8080'
-ENV GOATCOUNTER_DB 'sqlite:///goatcounter/db/goatcounter.sqlite3'
+ENV GOATCOUNTER_DB 'sqlite+/goatcounter/db/goatcounter.sqlite3'
 ENV GOATCOUNTER_SMTP ''
 
 RUN apt-get update \
