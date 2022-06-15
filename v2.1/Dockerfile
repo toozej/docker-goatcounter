@@ -1,10 +1,11 @@
 FROM golang:bullseye AS build
 
-ARG GIT_CI_REF=master
+ARG GIT_CI_REF=v2.1.*
+ARG GIT_BRANCH=release-2.1
 
-RUN git clone https://github.com/zgoat/goatcounter.git
+RUN git clone -b "$GIT_BRANCH" --single-branch https://github.com/zgoat/goatcounter.git
 RUN cd goatcounter \
-  && git checkout $GIT_CI_REF \
+  && git checkout $(git describe --match "$GIT_CI_REF" --abbrev=0 --tags HEAD) \
   && go build ./cmd/goatcounter
 
 FROM debian:bullseye-slim
