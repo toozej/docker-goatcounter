@@ -13,9 +13,9 @@ migrate_db ()
 create_site ()
 {
   goatcounter db create site \
-    -domain "$GOATCOUNTER_DOMAIN" \
-    -email "$GOATCOUNTER_EMAIL" \
-    -password "$GOATCOUNTER_PASSWORD" \
+    -vhost "$GOATCOUNTER_DOMAIN" \
+    -user.email "$GOATCOUNTER_EMAIL" \
+    -user.password "$GOATCOUNTER_PASSWORD" \
     -db "$GOATCOUNTER_DB"
 }
 
