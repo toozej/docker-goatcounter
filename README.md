@@ -12,8 +12,8 @@ docker pull ghcr.io/toozej/docker-goatcounter:$VERSION
 ### Local Build
 ```
 git clone https://github.com/toozej/docker-goatcounter.git
-cd docker-goatcounter/v2.0
-docker build -t goatcounter:2.0 .
+cd docker-goatcounter/v2.5
+docker build -t goatcounter:2.5 .
 ```
 
 ```bash
@@ -22,7 +22,7 @@ docker run --name goatcounter \
   -e GOATCOUNTER_EMAIL=admin@domain.com \
   -e GOATCOUNTER_PASSWORD=admin1234 \
   -p 127.0.0.0:8080:8080 \
-  goatcounter:2.0
+  goatcounter:2.5
 ```
 
 This command will start a single instance with pre-configured `stats.domain.com` site.
