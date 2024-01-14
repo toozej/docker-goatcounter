@@ -18,7 +18,7 @@ jobs:
 
     strategy:
       matrix:
-        version: [v1.1, v1.2, v1.3, v1.4, v2.0, v2.1, v2.2, v2.3, v2.4, v2.5]
+        version: [v1.1, v1.2, v1.3, v1.4, v2.0, v2.1, v2.2, v2.3, v2.4, v2.5, latest]
 
     steps:
       - name: Checkout repository
@@ -38,9 +38,20 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Build and push Docker image
+        if: startsWith(matrix.version, 'v')
         uses: docker/build-push-action@v5
         with:
           context: ./${{ matrix.version }}
           push: true
           tags: ghcr.io/toozej/docker-goatcounter:${{ matrix.version }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      # TODO figure out how to only publish latest on last element of matrix array
+      - name: Build and push Docker image latest
+        if: startsWith(matrix.version, 'latest')
+        uses: docker/build-push-action@v5
+        with:
+          context: ./v2.5
+          push: true
+          tags: ghcr.io/toozej/docker-goatcounter:latest
           labels: ${{ steps.meta.outputs.labels }}
