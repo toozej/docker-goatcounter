@@ -1,4 +1,4 @@
-FROM golang:buster AS build
+FROM golang:bookworm AS build
 
 ARG GIT_CI_REF=v2.0.*
 ARG GIT_BRANCH=release-2.0
@@ -8,7 +8,7 @@ RUN cd goatcounter \
   && git checkout $(git describe --match "$GIT_CI_REF" --abbrev=0 --tags HEAD) \
   && go build ./cmd/goatcounter
 
-FROM debian:buster-slim
+FROM debian:bookworm-slim
 
 WORKDIR /goatcounter
 
